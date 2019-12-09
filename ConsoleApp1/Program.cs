@@ -15,9 +15,19 @@ namespace ConsoleApp1
             
             try
             {
-                string userName = "manager";
-                string password = "admin123!";
+                string userName = "none";
+                string password = "none";
                 var entityManager = new EntityManager(userName, password);
+
+                var cartManager = new CartManager(entityManager);
+
+                cartManager.SetOrderCustomer("asdf");
+
+                var cart = cartManager.Cart;
+
+
+                
+                
                 var query = new QueryData("Party")
                 {
                     Criteria = new CriteriaDataCollection { CriteriaData.Equal("PartyId", "101") }
